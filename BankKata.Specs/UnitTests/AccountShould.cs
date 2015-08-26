@@ -10,7 +10,6 @@ namespace BankKata.Specs.UnitTests
     public class AccountShould
     {
         private Mock<ITransactionRepository> _TransactionRepository;
-        //private readonly Mock<IClock> _Clock = new Mock<IClock>();
         private Mock<IStatementPrinter> _StatementPrinter;
 
         private Account _Account;
