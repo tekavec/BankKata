@@ -11,7 +11,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace BankKata.Specs
+namespace BankKata.AcceptanceTests
 {
     using TechTalk.SpecFlow;
     

@@ -4,7 +4,7 @@ using BankKata.Model;
 using Moq;
 using NUnit.Framework;
 
-namespace BankKata.Specs.UnitTests
+namespace BankKata.Tests
 {
     [TestFixture]
     public class TransactionRepositoryShould
@@ -17,6 +17,12 @@ namespace BankKata.Specs.UnitTests
         public void Initialize()
         {
             _Clock = new Mock<IClock>();
+            _TransactionRepository = new TransactionRepository(_Clock.Object);
+        }
+
+        [TearDown]
+        public void Cleanup()
+        {
             _TransactionRepository = new TransactionRepository(_Clock.Object);
         }
 

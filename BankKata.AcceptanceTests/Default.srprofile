@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TestProfile xmlns="http://www.specrun.com/schemas/2011/09/TestProfile">
-  <Settings projectName="BankKata.Specs" projectId="{c48d098c-c8d0-4921-b414-5c1c972784d2}" />
+  <Settings projectName="BankKata.AcceptanceTests" projectId="{2d82ba69-2b8d-4309-b51f-ce569d81a100}" />
   <Execution stopAfterFailures="3" testThreadCount="1" testSchedulingMode="Sequential" />
   <!-- For collecting by a SpecRun server update and enable the following element. For using the 
       collected statistics, set testSchedulingMode="Adaptive" attribute on the <Execution> element.
     <Server serverUrl="http://specrunserver:6365" publishResults="true" />
   -->
   <TestAssemblyPaths>
-    <TestAssemblyPath>BankKata.Specs.dll</TestAssemblyPath>
+    <TestAssemblyPath>BankKata.AcceptanceTests.dll</TestAssemblyPath>
   </TestAssemblyPaths>
   <DeploymentTransformation>
     <Steps>

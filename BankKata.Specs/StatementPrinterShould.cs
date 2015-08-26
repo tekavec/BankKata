@@ -6,7 +6,7 @@ using BankKata.Printer;
 using Moq;
 using NUnit.Framework;
 
-namespace BankKata.Specs.UnitTests
+namespace BankKata.Tests
 {
     [TestFixture]
     public class StatementPrinterShould

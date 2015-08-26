@@ -9,7 +9,7 @@ using Moq;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 
-namespace BankKata.Specs
+namespace BankKata.AcceptanceTests
 {
     [Binding]
     public class AccountSteps
@@ -19,7 +19,7 @@ namespace BankKata.Specs
         private IStatementPrinter _StatementPrinter;
         private Account _Account;
         private Mock<IBankConsole> _Console;
-        private IFormatProvider _Culture = new System.Globalization.CultureInfo("en-GB", true);
+        private readonly IFormatProvider _Culture = new CultureInfo("en-GB", true);
 
 
         [Given(@"a client makes a deposit of (.*) on '(.*)'")]
@@ -34,7 +34,7 @@ namespace BankKata.Specs
 
             _Account.Deposit(amount);
         }
-        
+
         [Given(@"a deposit of (.*) on '(.*)'")]
         public void GivenADepositOfOn(decimal amount, string date)
         {
@@ -42,7 +42,7 @@ namespace BankKata.Specs
 
             _Account.Deposit(amount);
         }
-        
+
         [Given(@"a withdrawal of (.*) on '(.*)'")]
         public void GivenAWithdrawalOfOn(decimal amount, string date)
         {
@@ -50,13 +50,13 @@ namespace BankKata.Specs
 
             _Account.Withdraw(amount);
         }
-        
+
         [When(@"she prints her bank statement")]
         public void WhenShePrintsHerBankStatement()
         {
             _Account.PrintStatement();
         }
-        
+
         [Then(@"she would see")]
         public void ThenSheWouldSee(Table table)
         {
@@ -76,7 +76,7 @@ namespace BankKata.Specs
                     expectedStatementLine.Amount.ToString("#,##0.00", CultureInfo.InvariantCulture),
                     expectedStatementLine.Balance.ToString("#,##0.00", CultureInfo.InvariantCulture));
 
-                _Console.Verify(c => c.WriteLine(statementLine));                
+                _Console.Verify(c => c.WriteLine(statementLine));
             }
         }
     }

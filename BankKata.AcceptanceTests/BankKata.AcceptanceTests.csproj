@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D3F11A44-FD1B-455E-8DC6-E8D713F4F16D}</ProjectGuid>
+    <ProjectGuid>{8F75FBEB-6AE6-4E2E-A1B1-D19AA3912397}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BankKata.Specs</RootNamespace>
-    <AssemblyName>BankKata.Specs</AssemblyName>
+    <RootNamespace>BankKata.AcceptanceTests</RootNamespace>
+    <AssemblyName>BankKata.AcceptanceTests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -38,10 +38,6 @@
       <HintPath>..\packages\Moq.4.2.1507.0118\lib\net40\Moq.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="nunit.framework, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
-      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="SpecFlow.Assist.Dynamic, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\SpecFlow.Assist.Dynamic.1.0.3\lib\40\SpecFlow.Assist.Dynamic.dll</HintPath>
       <Private>True</Private>
@@ -52,11 +48,6 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
     <Reference Include="TechTalk.SpecFlow, Version=1.9.0.77, Culture=neutral, PublicKeyToken=0778194805d6db41, processorArchitecture=MSIL">
       <HintPath>..\packages\SpecFlow.1.9.0\lib\net35\TechTalk.SpecFlow.dll</HintPath>
       <Private>True</Private>
@@ -74,9 +65,6 @@
     </Compile>
     <Compile Include="AccountSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UnitTests\AccountShould.cs" />
-    <Compile Include="UnitTests\StatementPrinterShould.cs" />
-    <Compile Include="UnitTests\TransactionRepositoryShould.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Account.feature">
@@ -94,13 +82,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\BankKata\BankKata.csproj">
-      <Project>{1D1FD7E6-FB28-4CAD-A9C3-077D876BB998}</Project>
+      <Project>{1d1fd7e6-fb28-4cad-a9c3-077d876bb998}</Project>
       <Name>BankKata</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

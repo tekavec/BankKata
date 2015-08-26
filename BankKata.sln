@@ -10,7 +10,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{6C5B9F
 		.nuget\packages.config = .nuget\packages.config
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankKata.Specs", "BankKata.Specs\BankKata.Specs.csproj", "{D3F11A44-FD1B-455E-8DC6-E8D713F4F16D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankKata.Tests", "BankKata.Specs\BankKata.Tests.csproj", "{D3F11A44-FD1B-455E-8DC6-E8D713F4F16D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankKata.AcceptanceTests", "BankKata.AcceptanceTests\BankKata.AcceptanceTests.csproj", "{8F75FBEB-6AE6-4E2E-A1B1-D19AA3912397}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,6 +28,10 @@ Global
 		{D3F11A44-FD1B-455E-8DC6-E8D713F4F16D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D3F11A44-FD1B-455E-8DC6-E8D713F4F16D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D3F11A44-FD1B-455E-8DC6-E8D713F4F16D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F75FBEB-6AE6-4E2E-A1B1-D19AA3912397}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F75FBEB-6AE6-4E2E-A1B1-D19AA3912397}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F75FBEB-6AE6-4E2E-A1B1-D19AA3912397}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F75FBEB-6AE6-4E2E-A1B1-D19AA3912397}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
