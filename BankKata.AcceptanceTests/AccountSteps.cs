@@ -75,7 +75,6 @@ namespace BankKata.AcceptanceTests
                     Convert.ToDateTime(expectedStatementLine.Date, _Culture).ToString("dd/MM/yyyy", CultureInfo.InvariantCulture),
                     expectedStatementLine.Amount.ToString("#,##0.00", CultureInfo.InvariantCulture),
                     expectedStatementLine.Balance.ToString("#,##0.00", CultureInfo.InvariantCulture));
-
                 _Console.Verify(c => c.WriteLine(statementLine));
             }
         }

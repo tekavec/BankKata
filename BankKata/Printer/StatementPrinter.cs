@@ -20,30 +20,25 @@ namespace BankKata.Printer
         public void Print(IList<Transaction> transactions)
         {
             _Console.WriteLine(StatementHeader);
-            decimal balance = transactions.Sum(a => a.Money.Amount);
+            var balance = new Money(transactions.Sum(a => a.Money.Amount));
             foreach (var transaction in transactions.OrderByDescending(a => a.Date))
             {
                  _Console.WriteLine(GetFormattedLine(transaction, balance));
-                 balance -= transaction.Money.Amount;
+                 balance.Amount -= transaction.Money.Amount;
             }
         }
 
-        private static string GetFormattedLine(Transaction transaction, decimal balance)
+        private static string GetFormattedLine(Transaction transaction, Money balance)
         {
             return string.Format("| {0} | {1} | {2}",
                 FormattedDate(transaction.Date),
-                FormattedAmount(transaction.Money.Amount),
-                FormattedAmount(balance));
+                transaction.Money.FormattedAmount(),
+                balance.FormattedAmount());
         }
 
         private static string FormattedDate(DateTime dateTime)
         {
             return dateTime.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
-        }
-
-        private static string FormattedAmount(decimal amount)
-        {
-            return amount.ToString("#,##0.00", CultureInfo.InvariantCulture);
         }
 
         public void PrintHeader()

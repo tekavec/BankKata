@@ -42,6 +42,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MoneyShould.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AccountShould.cs" />
     <Compile Include="StatementPrinterShould.cs" />
