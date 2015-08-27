@@ -60,11 +60,10 @@ namespace BankKata.Tests
 
             _StatementPrinter.Verify(a => a.Print(transactions));
         }
-
-
+        
         private static Transaction GetTransaction(decimal amount, DateTime date)
         {
-            return new Transaction { Amount = amount, Date = date };
+            return new Transaction { Money = new Money(amount), Date = date };
         }
     }
 }

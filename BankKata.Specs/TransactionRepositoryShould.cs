@@ -25,18 +25,18 @@ namespace BankKata.Tests
         [Test]
         public void StoreATransaction()
         {
-            var transaction = GetTransaction(1000m, _Today);
+            var transaction = GetTransaction(new Money(1000m), _Today);
 
             _TransactionRepository.Add(transaction);
 
             Assert.AreEqual(1, _TransactionRepository.AllTransactions().Count);
-            Assert.AreEqual(GetTransaction(1000, _Today),
+            Assert.AreEqual(GetTransaction(new Money(1000m), _Today),
                 _TransactionRepository.AllTransactions()[0]);
         }
 
-        private static Transaction GetTransaction(decimal amount, DateTime date)
+        private static Transaction GetTransaction(Money money, DateTime date)
         {
-            return new Transaction {Amount = amount, Date = date};
+            return new Transaction {Money = money, Date = date};
         }
     }
 }

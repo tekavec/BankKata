@@ -37,7 +37,7 @@ namespace BankKata
 
         private Transaction GetTransaction(decimal amount)
         {
-            return new Transaction { Amount = amount, Date = _Clock.Today() };
+            return new Transaction { Money = new Money(amount), Date = _Clock.Today() };
         }
 
     }

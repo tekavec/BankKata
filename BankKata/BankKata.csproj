@@ -41,6 +41,7 @@
     <Compile Include="Clock\Clock.cs" />
     <Compile Include="Console\IBankConsole.cs" />
     <Compile Include="Clock\IClock.cs" />
+    <Compile Include="Money.cs" />
     <Compile Include="Printer\IStatementPrinter.cs" />
     <Compile Include="Model\ITransactionRepository.cs" />
     <Compile Include="Program.cs" />

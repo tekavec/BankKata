@@ -13,7 +13,7 @@ namespace BankKata.Tests
     {
         private Mock<IBankConsole> _Console;
         private StatementPrinter _StatementPrinter;
-        private string _StatementHeader = "| Date | Amount | Balance";
+        private const string StatementHeader = "| Date | Amount | Balance";
 
         [TestFixtureSetUp]
         public void Initialize()
@@ -27,20 +27,20 @@ namespace BankKata.Tests
         {
             _StatementPrinter.PrintHeader();
 
-            _Console.Verify(a => a.WriteLine(_StatementHeader));
+            _Console.Verify(a => a.WriteLine(StatementHeader));
         }
 
         [Test]
         public void PrintTransactionsInAReverseChronologicalOrder()
         {
             IList<Transaction> transactions = new List<Transaction>();
-            transactions.Add(new Transaction { Amount = 1000m, Date = new DateTime(2012, 1, 10) });
-            transactions.Add(new Transaction { Amount = -500m, Date = new DateTime(2012, 1, 14) });
-            transactions.Add(new Transaction { Amount = 2000m, Date = new DateTime(2012, 1, 13) });
+            transactions.Add(new Transaction { Money = new Money(1000m), Date = new DateTime(2012, 1, 10) });
+            transactions.Add(new Transaction { Money = new Money(-500m), Date = new DateTime(2012, 1, 14) });
+            transactions.Add(new Transaction { Money = new Money(2000m), Date = new DateTime(2012, 1, 13) });
 
             _StatementPrinter.Print(transactions);
 
-            _Console.Verify(a => a.WriteLine(_StatementHeader));
+            _Console.Verify(a => a.WriteLine(StatementHeader));
             _Console.Verify(a => a.WriteLine("| 14/01/2012 | -500.00 | 2,500.00"));
             _Console.Verify(a => a.WriteLine("| 13/01/2012 | 2,000.00 | 3,000.00"));
             _Console.Verify(a => a.WriteLine("| 10/01/2012 | 1,000.00 | 1,000.00"));

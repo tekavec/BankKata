@@ -4,19 +4,19 @@ namespace BankKata.Model
 {
     public class Transaction
     {
-        public decimal Amount { get; set; }
         public DateTime Date { get; set; }
+        public Money Money { get; set; }
 
         protected bool Equals(Transaction other)
         {
-            return Amount == other.Amount && Date.Equals(other.Date);
+            return Date.Equals(other.Date) && Equals(Money, other.Money);
         }
 
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            if (obj.GetType() != GetType()) return false;
+            if (obj.GetType() != this.GetType()) return false;
             return Equals((Transaction) obj);
         }
 
@@ -24,7 +24,7 @@ namespace BankKata.Model
         {
             unchecked
             {
-                return (Amount.GetHashCode()*397) ^ Date.GetHashCode();
+                return (Date.GetHashCode()*397) ^ (Money != null ? Money.GetHashCode() : 0);
             }
         }
     }
