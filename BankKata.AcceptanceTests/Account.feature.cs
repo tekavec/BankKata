@@ -18,7 +18,8 @@ namespace BankKata.AcceptanceTests
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.9.0.77")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [TechTalk.SpecRun.FeatureAttribute("Account", SourceFile="Account.feature", SourceLine=0)]
+    [TechTalk.SpecRun.FeatureAttribute("Account", new string[] {
+            "BankKata"}, SourceFile="Account.feature", SourceLine=1)]
     public partial class AccountFeature
     {
         
@@ -31,7 +32,8 @@ namespace BankKata.AcceptanceTests
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Account", "", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Account", "", ProgrammingLanguage.CSharp, new string[] {
+                        "BankKata"});
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -62,21 +64,31 @@ namespace BankKata.AcceptanceTests
             testRunner.CollectScenarioErrors();
         }
         
+        public virtual void FeatureBackground()
+        {
+#line 4
+#line 5
+ testRunner.Given("that account is created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+        }
+        
         [TechTalk.SpecRun.ScenarioAttribute("Print the statement", new string[] {
-                "mytag"}, SourceLine=4)]
+                "PrintStatement"}, SourceLine=7)]
         public virtual void PrintTheStatement()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Print the statement", new string[] {
-                        "mytag"});
-#line 5
-this.ScenarioSetup(scenarioInfo);
-#line 6
- testRunner.Given("a client makes a deposit of 1000 on \'10/01/2012\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 7
- testRunner.And("a deposit of 2000 on \'13/01/2012\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+                        "PrintStatement"});
 #line 8
- testRunner.And("a withdrawal of 500 on \'14/01/2012\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+this.ScenarioSetup(scenarioInfo);
+#line 4
+this.FeatureBackground();
 #line 9
+ testRunner.Given("a client makes a deposit of 1000 on \'10/01/2012\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 10
+ testRunner.And("a deposit of 2000 on \'13/01/2012\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 11
+ testRunner.And("a withdrawal of 500 on \'14/01/2012\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 12
  testRunner.When("she prints her bank statement", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
@@ -95,7 +107,7 @@ this.ScenarioSetup(scenarioInfo);
                         "10/01/2012",
                         "1,000.00",
                         "1,000.00"});
-#line 10
+#line 13
  testRunner.Then("she would see", ((string)(null)), table1, "Then ");
 #line hidden
             this.ScenarioCleanup();

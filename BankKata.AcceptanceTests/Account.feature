@@ -1,7 +1,10 @@
-﻿Feature: Account
+﻿@BankKata
+Feature: Account
 	
+Background: 
+	Given that account is created
 
-@mytag
+@PrintStatement
 Scenario: Print the statement
 	Given a client makes a deposit of 1000 on '10/01/2012'
 	And a deposit of 2000 on '13/01/2012'

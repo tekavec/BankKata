@@ -21,15 +21,19 @@ namespace BankKata.AcceptanceTests
         private Mock<IBankConsole> _Console;
         private readonly IFormatProvider _Culture = new CultureInfo("en-GB", true);
 
-
-        [Given(@"a client makes a deposit of (.*) on '(.*)'")]
-        public void GivenAClientMakesADepositOfOn(decimal amount, string date)
+        [Given(@"that account is created")]
+        public void GivenThatAccountIsCreated()
         {
             _Clock = new Mock<IClock>();
             _Console = new Mock<IBankConsole>();
             _TransactionRepository = new TransactionRepository();
             _StatementPrinter = new StatementPrinter(_Console.Object);
             _Account = new Account(_TransactionRepository, _StatementPrinter, _Clock.Object);
+        }
+
+        [Given(@"a client makes a deposit of (.*) on '(.*)'")]
+        public void GivenAClientMakesADepositOfOn(decimal amount, string date)
+        {
             _Clock.Setup(a => a.Today()).Returns(Convert.ToDateTime(date, _Culture));
 
             _Account.Deposit(amount);
