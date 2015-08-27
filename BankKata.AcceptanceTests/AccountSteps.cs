@@ -27,9 +27,9 @@ namespace BankKata.AcceptanceTests
         {
             _Clock = new Mock<IClock>();
             _Console = new Mock<IBankConsole>();
-            _TransactionRepository = new TransactionRepository(_Clock.Object);
+            _TransactionRepository = new TransactionRepository();
             _StatementPrinter = new StatementPrinter(_Console.Object);
-            _Account = new Account(_TransactionRepository, _StatementPrinter);
+            _Account = new Account(_TransactionRepository, _StatementPrinter, _Clock.Object);
             _Clock.Setup(a => a.Today()).Returns(Convert.ToDateTime(date, _Culture));
 
             _Account.Deposit(amount);

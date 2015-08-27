@@ -1,4 +1,5 @@
-﻿using BankKata.Model;
+﻿using BankKata.Clock;
+using BankKata.Model;
 using BankKata.Printer;
 
 namespace BankKata
@@ -7,9 +8,14 @@ namespace BankKata
     {
         private readonly ITransactionRepository _TransactionRepository;
         private readonly IStatementPrinter _StatementPrinter;
+        private readonly IClock _Clock;
 
-        public Account(ITransactionRepository transactionRepository, IStatementPrinter statementPrinter)
+        public Account(
+            ITransactionRepository transactionRepository, 
+            IStatementPrinter statementPrinter, 
+            IClock clock)
         {
+            _Clock = clock;
             _TransactionRepository = transactionRepository;
             _StatementPrinter = statementPrinter;
         }
@@ -21,12 +27,18 @@ namespace BankKata
 
         public void Deposit(decimal amount)
         {
-            _TransactionRepository.AddDeposit(amount);
+            _TransactionRepository.Add(GetTransaction(amount));
         }
 
         public void Withdraw(decimal amount)
         {
-            _TransactionRepository.AddWithdrawal(amount);
+            _TransactionRepository.Add(GetTransaction(-amount));
         }
+
+        private Transaction GetTransaction(decimal amount)
+        {
+            return new Transaction { Amount = amount, Date = _Clock.Today() };
+        }
+
     }
 }
